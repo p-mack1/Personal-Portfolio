@@ -1,4 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
+  var links = document.querySelectorAll('a[href$=".html"]');
+
+  links.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var destination = new URL(link.href, window.location.href);
+      var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (destination.origin !== window.location.origin || destination.href === window.location.href) {
+        return;
+      }
+
+      e.preventDefault();
+      document.body.classList.add("is-leaving");
+
+      setTimeout(function () {
+        window.location.href = destination.href;
+      }, reducedMotion ? 0 : 450);
+    });
+  });
+
   var form = document.getElementById("contact-form");
   if (!form) return;
 
