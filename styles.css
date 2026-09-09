@@ -1,0 +1,355 @@
+/* ============================================
+   Tokens
+   ============================================ */
+:root {
+  --bg: #EEF1F0;
+  --surface: #FFFFFF;
+  --ink: #171A19;
+  --ink-soft: #5B6360;
+  --line: #E1E5E3;
+  --accent: #1E6F5C;       /* deep pine */
+  --accent-soft: #E4F0EC;  /* pale pine tint */
+  --amber: #C97A2B;        /* warm clay, used sparingly */
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(23,26,25,0.04), 0 12px 28px -14px rgba(23,26,25,0.18);
+  --font-head: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  line-height: 1.5;
+}
+
+a { color: inherit; }
+
+/* subtle site nav shown on portfolio/contact pages */
+.site-nav {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px;
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
+.site-nav a.active {
+  color: #fff;
+  background: var(--accent);
+}
+
+/* ============================================
+   Profile Card (index.html)
+   ============================================ */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 32px 32px;
+  text-align: center;
+}
+
+.avatar-wrap {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 24px;
+  position: relative;
+}
+
+.avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  display: block;
+}
+
+.name {
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.role {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+
+.bio {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0 0 24px;
+  max-width: 32ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-label {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.skill-pill {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: default;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.skill-pill:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.stats {
+  display: flex;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+  margin-bottom: 24px;
+}
+
+.stat {
+  flex: 1;
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--line);
+}
+
+.stat-num {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent);
+  display: block;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  font-family: inherit;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ============================================
+   Portfolio page
+   ============================================ */
+.page {
+  width: 100%;
+  max-width: 720px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.page-header h1 {
+  font-family: var(--font-head);
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+
+.page-header p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.project-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--amber);
+  background: #FBEEE0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.project-card h3 {
+  font-family: var(--font-head);
+  font-size: 19px;
+  margin: 0 0 8px;
+}
+
+.project-card p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin: 0 0 14px;
+}
+
+.project-stack {
+  font-size: 12px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+/* ============================================
+   Contact page
+   ============================================ */
+.contact-layout {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px;
+}
+
+.form-row {
+  margin-bottom: 18px;
+}
+
+.form-row label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: #FBFBFA;
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  background: #fff;
+}
+
+.form-status {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+  min-height: 20px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 520px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-nav {
+    top: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
